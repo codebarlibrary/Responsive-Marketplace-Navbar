@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body {
+    background-color: #09090b; 
+    color: #fff;
+    height: 200vh; 
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(9, 9, 11, 0.8);
+    backdrop-filter: blur(12px); 
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo i { color: #3b82f6; font-size: 24px; }
+
+.search-bar {
+    position: relative;
+    width: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 100%;
+    background: #18181b;
+    border: 1px solid #27272a;
+    padding: 10px 40px; 
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 12px;
+    color: #71717a;
+}
+
+.shortcut {
+    position: absolute;
+    right: 12px;
+    background: #27272a;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    color: #a1a1aa;
+    border: 1px solid #3f3f46;
+}
+
+.search-bar input:focus {
+    border-color: #3b82f6;
+    background: #000;
+}
+
+.desktop-nav { display: flex; align-items: center; gap: 24px; }
+
+.desktop-nav a {
+    text-decoration: none;
+    color: #a1a1aa;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.desktop-nav a:hover { color: #fff; }
+
+.btn-signup {
+    background: #fff;
+    color: #000 !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+}
+
+.btn-signup:hover { background: #e4e4e7; }
+
+.mobile-actions { display: none; align-items: center; gap: 15px; }
+
+.mobile-actions button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px; 
+    width: 280px;
+    height: 100vh;
+    background: #09090b;
+    border-left: 1px solid #27272a;
+    z-index: 2000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-sidebar.active { right: 0; }
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #27272a;
+    padding-bottom: 15px;
+}
+
+.sidebar-title { font-weight: 600; font-size: 18px; }
+
+.close-btn {
+    background: #18181b;
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    color: #a1a1aa;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-size: 15px;
+}
+
+.sidebar-link:hover { background: #18181b; color: #fff; }
+
+.sidebar-footer {
+    margin-top: auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-sidebar-login, .btn-sidebar-signup {
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-sidebar-login { background: #18181b; color: #fff; }
+.btn-sidebar-signup { background: #3b82f6; color: #fff; }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.overlay.active { opacity: 1; visibility: visible; }
+
+@media (max-width: 900px) {
+    .search-bar, .desktop-nav { display: none; } 
+    .mobile-actions { display: flex; }
+}
